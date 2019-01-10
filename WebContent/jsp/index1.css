@@ -1,0 +1,350 @@
+/*------------------------------------------------*/
+/*                     banner 部分                 */
+/*------------------------------------------------*/
+/* 整体的banner的定位及尺寸 */
+.ck-slide{
+    width: 1000px;
+    height: 400px;
+    margin: 20px auto 0px auto;
+    position: relative;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+}
+/* 平铺的5张banner图片 */
+.ck-slide-content {
+}
+/* 上一页和下一页按钮的公共样式  */
+.ck-slide .ck-prev,.ck-slide .ck-next{
+    width: 35px;
+    height: 70px;
+    z-index: 2;
+    position: absolute;
+    margin-top: -35px;
+    top: 50%;
+    background-color: #000000;
+    border-radius: 3px;
+    opacity: .3;
+    text-indent: -9900px;
+}
+/* 上一页按钮的样式 */
+.ck-prev{
+    left: 5px;
+    background: url("../images/index/arrow-left.png") no-repeat center;
+}
+/* 下一页按钮的样式 */
+.ck-next{
+    right: 5px;
+    background: url("../images/index/arrow-right.png") no-repeat center;
+}
+/* banner底部的5个小圆点 */
+.ck-pageControl{
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    z-index: 20;
+    margin-left: -54px;
+}
+.ck-pageControl ul{
+    height: 20px;
+    padding: 0px 4px;
+    /*border-radius: 8px;*/
+}
+.ck-pageControl ul li{
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 4px 4px;
+    background-color: #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    text-indent: -9999px;
+}
+.ck-pageControl ul li:hover{
+    background-color: #0AA1ED;
+}
+
+/*------------------------------------------------*/
+/*                     特别推荐部分                 */
+/*------------------------------------------------*/
+
+/*特别推荐部分的容器定位*/
+#spe-recommend{
+    width: 1000px;
+    height: 240px;
+    margin: 10px auto;
+    border: 1px #dddddd solid;
+    overflow: hidden;
+}
+
+/*推荐1的定位*/
+.recommend1 {
+    width: 326px;
+    height: 240px;
+    margin-right: 10px;
+    background-color: #0aa1ed;
+
+    position: relative;
+}
+/*推荐1的字体颜色*/
+.recommend1.lf p{
+    color: #f0f0f0;
+}
+/*推荐2的定位*/
+.recommend2 {
+    width: 326px;
+    height: 240px;
+    margin-right: 10px;
+    background-color: #c3fbd7;
+
+    position: relative;
+}
+/*推荐2的字体颜色*/
+.recommend2.lf p{
+    color: #0C7E65;
+}
+/*推荐3的定位*/
+.recommend3 {
+    width: 326px;
+    height: 240px;
+    background-color: #E89AA8;
+
+    position: relative;
+}
+/*推荐3的字体颜色*/
+.recommend3.lf p{
+    color: #f0f0f0;
+}
+/*推荐中左侧图片的通用定位*/
+.recommend-picture {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+}
+/*推荐中右侧文字的通用定位*/
+.recommend-text {
+    margin-top: 85px;
+    margin-right: 10px;
+}
+/*推荐中右侧大字的字号*/
+.recommend-text.rf .title{
+    font-size: 24px;
+}
+/*第一个推荐的图片的偏移量*/
+.short-distance{
+    top: 33px;
+    left: -84px;
+}
+
+/*------------------------------------------------*/
+/*                     Welcome部分                 */
+/*------------------------------------------------*/
+
+/*Welcome部分*/
+#welcome {
+    width: 1000px;
+    height: 370px;
+    margin: 0px auto 40px;
+    border: 1px solid #dddddd;
+    background-image: url("../images/index/index_guild.png");
+}
+
+#welcome a{
+    position: relative;
+    top: 145px;
+    left: 515px;
+    color: #0aa1ed;
+    font-size: 14px;
+}
+
+/*------------------------------------------------*/
+/*                     学习用品部分                 */
+/*------------------------------------------------*/
+/*学习用品部分*/
+#study {
+    width: 1000px;
+    margin: 0px auto 20px;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+}
+
+.section-title{
+    margin-bottom: 12px;
+    font: 24px "microsoft yahei";
+    font-weight: bold;
+    color: #333333;
+}
+
+.section-subtitle{
+    font-size: 14px;
+    color: #f0f0f0;
+    background-color: #333333;
+    margin-left: 20px;
+    padding: 2px 5px;
+}
+
+.study-left {
+    width: 600px;
+    height: 380px;
+    background-color: #e8e8e8;
+    position: relative;
+}
+
+#study-product1-param {
+    position: absolute;
+    top: 93px;
+    left: 56px;
+}
+
+.param-title{
+    font: 14px "microsoft yahei";
+    font-weight: normal;
+    color: #333332;
+    float: left;
+    margin-top: 10px;
+    width: 160px;
+}
+
+.param-price{
+    font-size: 14px;
+    font-weight: 600;
+    color: #0aa1ed;
+    float: left;
+    clear: both;
+    margin-top: 10px;
+}
+
+.param-detail{
+    width: 130px;
+    height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #27b1f6;
+    float: left;
+    clear: both;
+    margin-top: 10px;
+}
+
+.param-detail-text{
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+#study-product1-img{
+    position: absolute;
+    top: 58px;
+    right: 25px;
+}
+
+.study-right {
+    width: 380px;
+    height: 380px;
+}
+
+#study-right-top {
+    width: 380px;
+    height: 180px;
+    background-color: #e8e8e8;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#study-right-bottom {
+    width: 380px;
+    height: 180px;
+    background-color: #e8e8e8;
+    position: relative;
+}
+
+.study-product-param {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.study-product-img {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
+
+/*------------------------------------------------*/
+/*                     美食推荐部分                 */
+/*------------------------------------------------*/
+
+/*美食推荐整体定位*/
+#food-recommend {
+    width: 1000px;
+    margin: 0px auto 20px;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+}
+/*左侧介绍功能区块布局*/
+.food-left {
+    width: 300px;
+    height: 332px;
+    background-color: #fff;
+}
+
+
+
+
+
+/*右侧订购功能区块布局*/
+.food-right {
+    width: 630px;
+    height: 332px;
+}
+/*订购功能模块的布局*/
+.food-order {
+    width: 200px;
+    height: 332px;
+    background-color: #e8e8e8;
+    float: left;
+    margin-left: 10px;
+}
+/*美食图片*/
+.food-order img {
+    margin: 35px auto 0px;
+    display: block;
+}
+/*美食标题和价格*/
+.food-order h2,.food-order p {
+    margin: 5px auto;
+    text-align: center;
+    font-size: 16px;
+    color: #a6a6a6;
+    font-weight: 400;
+}
+.food-order h2 span{
+    font-size: 12px;
+}
+.food-order a{
+    width: 100px;
+    line-height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 15px auto;
+    display: block;
+    color: #FFFFFF;
+    background-color: #E89AA8;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
