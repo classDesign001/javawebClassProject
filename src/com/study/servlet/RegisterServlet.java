@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import com.study.DaoImpl.UserDaoImpl;
+import com.study.daoIpml.*;
 import com.study.bean.ajia_user;
 import com.study.dao.UserDao;
 import com.study.util.DBUtil;

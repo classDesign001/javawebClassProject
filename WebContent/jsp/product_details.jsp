@@ -117,7 +117,7 @@
         </p>
         <!-- 购买部分-->
         <div class="shops">
-            <a href="cart.jsp" class="buy lf" id="buy_now">立即购买</a>
+            <a href="cart.html" class="buy lf" id="buy_now">立即购买</a>
             <a href="#" class="shop lf" id="add_cart"><img src="../images/product_detail/product_detail_img7.png" alt=""/>加入购物车</a>
             <a href="#" class="collection lf" id="collect"><span>收藏</span></a><b><img src="../images/product_detail/product_detail_img6.png"                                                                       alt=""/></b>
         </div>
@@ -168,7 +168,7 @@
         <div class="tab lf">
             <div class="cat">
                 <span class="active"><a href="">商品详情</a></span>
-                <span><a href="lookforward.jsp">商品评价</a></span>
+                <span><a href="lookforward.html">商品评价</a></span>
             </div>
         </div>
         <div class="cart rt">
@@ -392,7 +392,7 @@
 //                $(this).parent().prev().prev().css('display','block');
             }else{
                 alert("您的宝贝已经给您放好了");
-                location.href="myCollect.jsp";
+                location.href="myCollect.html";
             }
             // $(this).prev().prev().addClass("animated rubberBand");
 
@@ -444,14 +444,14 @@
 //            $("#add_cart").text("加入购物车").css({"background":"#f5f5f5","color":"#000"})
                 alert("请选择商品信息");
             }else{
-                location.href="cart.jsp";
+                location.href="cart.html";
             }
             e.preventDefault();
             var color = $("#choose_color input.borderChange").val();
             var model = $("#choose_model span.borderChange").html();
             var num = $("#buy-num").val();
             // 后台需要的参数
-            // var url = '/toOrder/'+${item.id}+'.jsp?&num='+num+'&itemColor='+color+'&itemModel='+model;
+            // var url = '/toOrder/'+${item.id}+'.html?&num='+num+'&itemColor='+color+'&itemModel='+model;
 //             window.location.href = url;
         })
     })
@@ -493,7 +493,7 @@
         };
         $.ajax({
             type: "post",
-            url: "/insertToCart.jsp",
+            url: "/insertToCart.html",
             data: params,
             success: function (data) {
                 if (data == '200') {

@@ -29,10 +29,10 @@
     </div>
     <div class="rt">
         <ul class="lf">
-            <li><a href="myCollect.html" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
-            <li><a href="myOrder.html" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
-            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
-            <li><a href="lookforward.html">帮助</a><b>|</b></li>
+            <li><a href="myCollect.jsp" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
+            <li><a href="myOrder.jsp" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
+            <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
+            <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
             <li><a href="login.jsp">登录</a></li>
         </ul>
     </div>
@@ -128,7 +128,7 @@
 
             <h3 id="product_preferential_main">限时特惠<b id="product_price_main">￥6688.00</b></h3>
 
-            <p class="view_details"><a href="product_details.jsp">查看详情</a></p>
+            <p class="view_details"><a href="product_details.html">查看详情</a></p>
         </div>
         <img id="study_product_main" src="../images/index/index_hot_study_img1.png" alt=""/>
     </div>
@@ -139,7 +139,7 @@
 
                 <h3 id="product_preferential_vice1"><b id="product_price_vice1">￥6688.00</b></h3>
 
-                <p class="view_details"><a href="product_details.jsp" >查看详情</a></p>
+                <p class="view_details"><a href="product_details.html" >查看详情</a></p>
             </div>
             <img id="study_product_vice1" src="../images/index/index_hot_study_img2.png" alt=""/>
         </div>
@@ -149,7 +149,7 @@
 
                 <h3 id="product_preferential_vice2"><b id="product_price_vice2">￥68.00</b></h3>
 
-                <p class="view_details"><a href="product_details.jsp" >查看详情</a></p>
+                <p class="view_details"><a href="product_details.html" >查看详情</a></p>
                 <img id="study_product_vice2" src="../images/index/index_hot_study_img3.png" alt=""/>
             </div>
         </div>
@@ -201,7 +201,7 @@
                 <h2>红烧肉盖饭套餐<span> (吉野家) </span></h2>
 
                 <p>￥20.00</p>
-                <a href="item_food.jsp">立即订餐</a>
+                <a href="item_food.html">立即订餐</a>
             </div>
             <div class="food1 lf">
                 <img src="../images/index/index_hot_food_img2.png" alt="" id="food1"/>
@@ -209,7 +209,7 @@
                 <h2>全素套餐<span> (魏家凉皮) </span></h2>
 
                 <p>￥16.00</p>
-                <a href="item_food.jsp">立即订餐</a>
+                <a href="item_food.html">立即订餐</a>
             </div>
             <div class="food1 lf" >
                 <img src="../images/index/index_hot_food_img3.png" alt=""/>
@@ -217,7 +217,7 @@
                 <h2>营养海鲜汤<span> (山西面食家) </span></h2>
 
                 <p>￥25.00</p>
-                <a href="item_food.jsp">立即订餐</a>
+                <a href="item_food.html">立即订餐</a>
             </div>
         </div>
     </div>
