@@ -41,10 +41,10 @@
 <!-- 主导航-->
 <nav id="nav">
     <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="item_food.html">生活餐饮</a></li>
-        <li><a href="itemCat.html">学习用品</a></li>
-        <li><a href="lookforward.html">私人定制</a></li>
+        <li><a href="index.jsp">首页</a></li>
+        <li><a href="item_food.jsp">生活餐饮</a></li>
+        <li><a href="itemCat.jsp">学习用品</a></li>
+        <li><a href="lookforward.jsp">私人定制</a></li>
     </ul>
 </nav>
 <!-- 我的订单导航栏-->
