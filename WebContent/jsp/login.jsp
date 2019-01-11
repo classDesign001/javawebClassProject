@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -22,7 +24,7 @@
             <div class="txt">
                 <p>登录学子商城
                     <span>
-                        <a href="register.html">新用户注册</a>
+                        <a href="register.jsp">新用户注册</a>
                     </span>
                 </p>
                 <div class="text">
@@ -157,13 +159,16 @@
         //异步提交请求，进行验证
         $.ajax({
             type: 'POST',
-            url: 'data/1_login.php',
+            url: '../loginServlet.do',
             data: inputData,
             success: function(txt, msg, xhr){
+            	console.log(txt);
+            	console.log(msg);	
                 if(txt=='ok'){  //登录成功
                     var loginName = $('[name="uname"]').val();
                     sessionStorage['loginName']=loginName;
                     console.log(loginName);
+                    window.location.href="personage.jsp";
                 }else{ //登录失败
                     $('#showResult').html('登录失败！错误消息为：'+txt);
                 }
