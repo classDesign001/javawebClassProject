@@ -1,4 +1,4 @@
-package com.study.daoIpml;
+package com.study.daoImpl;
 
 import java.lang.reflect.ParameterizedType;
 import java.sql.PreparedStatement;
@@ -134,15 +134,15 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	private String getSql(String operator) {
 
 		StringBuffer sql = new StringBuffer();
-		// Í¨¹ý·´Éä»ñÈ¡ÊµÌåÀàÖÐµÄËùÓÐ±äÁ¿
+		// Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡Êµï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 		java.lang.reflect.Field[] fields = EntityClass.getDeclaredFields();
 
-		// ²åÈë²Ù×÷
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		if (operator.equals(SQL_INSERT)) {
 			sql.append("insert into " + EntityClass.getSimpleName());
 			sql.append("(");
 			for (int i = 0; fields != null && i < fields.length; i++) {
-				fields[i].setAccessible(true); // Õâ¾ä»°±ØÐëÒªÓÐ,·ñÔò»áÅ×³öÒì³£.
+				fields[i].setAccessible(true); // ï¿½ï¿½ä»°ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×³ï¿½ï¿½ì³£.
 				String column = fields[i].getName();
 				sql.append(column).append(",");
 			}
@@ -152,7 +152,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 				sql.append("?,");
 			}
 			sql.deleteCharAt(sql.length() - 1);
-			// ÊÇ·ñÐèÒªÌí¼Ó·ÖºÅ
+			// ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½Ó·Öºï¿½
 			sql.append(")");
 		} else if (operator.equals(SQL_UPDATE)) {
 			sql.append("update " + EntityClass.getSimpleName() + " set ");

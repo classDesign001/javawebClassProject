@@ -1,4 +1,4 @@
-package com.study.daoIpml;
+package com.study.daoImpl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
