@@ -30,21 +30,30 @@
     </div>
     <div class="rt">
         <ul class="lf">
-            <li><a href="myCollect.html" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
-            <li><a href="myOrder.html" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
-            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
-            <li><a href="lookforward.html">帮助</a><b>|</b></li>
-            <li><a href="login.html">登录</a></li>
+            <li><a href="myCollect.jsp" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
+            <li><a href="myOrder.jsp" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
+            <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
+            <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
+            <%
+            	String name=(String)session.getAttribute("username");
+            	if(!name.equals("")){
+            		out.print("<li><a href='#'>"+name+"</a></li>");
+            	}else{
+            		out.print("<li><a href='login.jsp'>登录</a></li>");
+            	  }
+            	
+            	%>
+            
         </ul>
     </div>
 </header>
 <!-- 主导航-->
 <nav id="nav">
     <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="item_food.html">生活餐饮</a></li>
-        <li><a href="itemCat.html">学习用品</a></li>
-        <li><a href="lookforward.html">私人定制</a></li>
+        <li><a href="index.jsp">首页</a></li>
+        <li><a href="item_food.jsp">生活餐饮</a></li>
+        <li><a href="itemCat.jsp">学习用品</a></li>
+        <li><a href="lookforward.jsp">私人定制</a></li>
     </ul>
 </nav>
 <!-- 我的订单导航栏-->
@@ -95,9 +104,9 @@
             </dl>
             <dl class="count_managment">
                 <dt onClick="changeImage()">帐号管理<img src="../images/myOrder/myOrder1.png"></dt>
-                <dd class="first_dd"><a href="personage.html">我的信息</a></dd>
-                <dd><a href="personal_icon.html">个人头像</a></dd>
-                <dd><a href="personal_password.html">安全管理</a></dd>
+                <dd class="first_dd"><a href="personage.jsp">我的信息</a></dd>
+                <dd><a href="personal_icon.jsp">个人头像</a></dd>
+                <dd><a href="personal_password.jsp">安全管理</a></dd>
             </dl>
 
 

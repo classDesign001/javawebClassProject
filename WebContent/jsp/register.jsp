@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -34,7 +36,7 @@
         <div class="txt">
           <p>新用户注册
             <span>
-              <a href="login.html">直接登录</a>
+              <a href="login.jsp">直接登录</a>
             </span>
           </p>
         </div>
@@ -145,9 +147,25 @@
       }
       if(lengths==4){
         $('.modal').fadeIn();
-        setTimeout(function(){
-          window.location.href='login.html';
-        },2000);
+        
+        //读取用户的输入——表单序列化
+        var inputData = $('#form-register').serialize();
+        //异步提交请求，进行验证
+        $.ajax({
+            type: 'POST',
+            url: '../registerServlet.do',
+            data: inputData,
+            success: function(txt, msg, xhr){
+            	console.log(txt);
+            	console.log(msg);	
+                if(txt=='ok'){  //登录成功
+                    window.location.href="login.jsp";
+                }else{ //登录失败
+                    $('#showResult').html('登录失败！错误消息为：'+txt);
+                }
+            }
+        });
+
       }
     });
   })
@@ -188,7 +206,7 @@
         }
       }
       //3 打开连接
-      xhr.open('GET','/checkUsername.html?username='+data, true);
+      xhr.open('GET','/checkUsername.jsp?username='+data, true);
       //4 发送请求
       xhr.send(null);
 
@@ -268,7 +286,7 @@
         }
       }
       //3 打开连接
-      xhr.open('GET','/checkEmail.html?email='+data, true);
+      xhr.open('GET','/checkEmail.jsp?email='+data, true);
       //4 发送请求
       xhr.send(null);
 
@@ -325,7 +343,7 @@
         }
       }
       //3 打开连接
-      xhr.open('GET','/checkPhone.html?phone='+data, true);
+      xhr.open('GET','/checkPhone.jsp?phone='+data, true);
       //4 发送请求
       xhr.send(null);
 
