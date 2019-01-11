@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="com.study.bean.ajia_user"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,10 @@
 </head>
 <body>
 <!-- 页面顶部-->
+<% 
+ajia_user user=(ajia_user)session.getAttribute("user");
+
+%>
 <header id="top">
     <div id="logo" class="lf">
         <img class="animated jello" src="../images/header/logo.png" alt="logo"/>
@@ -35,7 +40,7 @@
             <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
             <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
             <%
-            	String name=(String)session.getAttribute("username");
+            	String name=user.getUsername();
             	if(!name.equals("")){
             		out.print("<li><a href='#'>"+name+"</a></li>");
             	}else{
@@ -100,7 +105,7 @@
 
         <dl class="address">
                 <dt>收货地址<img src="../images/myOrder/myOrder1.png"></dt>
-				<dd><a href="addressAdmin.html">地址管理</a></dd>
+				<dd><a href="addressAdmin.jsp">地址管理</a></dd>
             </dl>
             <dl class="count_managment">
                 <dt onClick="changeImage()">帐号管理<img src="../images/myOrder/myOrder1.png"></dt>

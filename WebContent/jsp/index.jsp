@@ -1,3 +1,4 @@
+<%@page import="com.study.bean.ajia_user"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +12,10 @@
 </head>
 <body>
 <!-- 页面顶部-->
+<% 
+ajia_user user=(ajia_user)session.getAttribute("user");
+
+%>
 <header id="top">
     <div id="logo" class="lf">
         <img src="../images/header/logo.png" alt="logo"/>
@@ -33,7 +38,7 @@
             <li><a href="myOrder.jsp" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
             <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
             <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
-            <li><a href="login.jsp">登录</a></li>
+            <% if(user!=null){%><li><a href="personage.jsp"><%=user.getUsername() %></a></li> <%}else{%><li><a href="login.jsp">登录</a></li><% }%>
         </ul>
     </div>
 </header>

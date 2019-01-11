@@ -425,7 +425,7 @@
             $(this).click(function () {
                 $(this).addClass("borderChange")
                 if ($(this).siblings().addClass("borderChange")) {
-                    $(this).siblings().removeClass("borderChange")
+                    $(this).siblings().removeClass("borderChange");
                 }
                 var color = $(this).val();
                 console.log(color)

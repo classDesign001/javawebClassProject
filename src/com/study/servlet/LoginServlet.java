@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.study.bean.ajia_user;
 import com.study.util.DBUtil;
 
 public class LoginServlet extends HttpServlet {
@@ -32,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 		
 		Connection conn;
 		PreparedStatement pstm=null;
+		ajia_user user2=new ajia_user();
 		try {
 			conn=DBUtil.getConnection();
 			String sql="select * from ajia_user where username=? and password=?";
@@ -39,14 +41,21 @@ public class LoginServlet extends HttpServlet {
 			pstm.setString(1, user);
 			pstm.setString(2, pwd);
 			ResultSet rs=pstm.executeQuery();
+			HttpSession sess=req.getSession();
 			if(rs.next()){
-				HttpSession sess=req.getSession();
-				sess.setAttribute("username", rs.getString("username"));
+				
+				user2.setCreated(rs.getString("created"));
+				user2.setEmail(rs.getString("email"));
+				user2.setId(rs.getInt("id"));
+				user2.setPassword(rs.getString("password"));
+				user2.setPhone(rs.getString("phone"));
+				user2.setUpdated(rs.getString("updated"));
+				user2.setUsername(rs.getString("username"));
 				out.print("ok");
 			}else {
 				out.print("’À∫≈¥ÌŒÛ");
-
 			}
+			sess.setAttribute("user", user2);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
