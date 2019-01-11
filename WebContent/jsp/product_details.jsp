@@ -30,21 +30,21 @@
     </div>
     <div class="rt">
         <ul class="lf">
-            <li><a href="myCollect.html" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
-            <li><a href="myOrder.html" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
-            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
-            <li><a href="lookforward.html">帮助</a><b>|</b></li>
-            <li><a href="login.html">登录</a></li>
+            <li><a href="myCollect.jsp" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
+            <li><a href="myOrder.jsp" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
+            <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
+            <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
+            <li><a href="login.jsp">登录</a></li>
         </ul>
     </div>
 </header>
 <!-- nav主导航-->
 <nav id="nav">
     <ul>
-        <li><a href="index.html" class="active">首页</a></li>
-        <li><a href="item_food.html">生活餐饮</a></li>
-        <li><a href="itemCat.html">学习用品</a></li>
-        <li><a href="lookforward.html">私人定制</a></li>
+        <li><a href="index.jsp" class="active">首页</a></li>
+        <li><a href="item_food.jsp">生活餐饮</a></li>
+        <li><a href="itemCat.jsp">学习用品</a></li>
+        <li><a href="lookforward.jsp">私人定制</a></li>
     </ul>
 </nav>
 <!-- 内容-->
@@ -117,7 +117,7 @@
         </p>
         <!-- 购买部分-->
         <div class="shops">
-            <a href="cart.html" class="buy lf" id="buy_now">立即购买</a>
+            <a href="cart.jsp" class="buy lf" id="buy_now">立即购买</a>
             <a href="#" class="shop lf" id="add_cart"><img src="../images/product_detail/product_detail_img7.png" alt=""/>加入购物车</a>
             <a href="#" class="collection lf" id="collect"><span>收藏</span></a><b><img src="../images/product_detail/product_detail_img6.png"                                                                       alt=""/></b>
         </div>
@@ -168,7 +168,7 @@
         <div class="tab lf">
             <div class="cat">
                 <span class="active"><a href="">商品详情</a></span>
-                <span><a href="lookforward.html">商品评价</a></span>
+                <span><a href="lookforward.jsp">商品评价</a></span>
             </div>
         </div>
         <div class="cart rt">
@@ -392,7 +392,7 @@
 //                $(this).parent().prev().prev().css('display','block');
             }else{
                 alert("您的宝贝已经给您放好了");
-                location.href="myCollect.html";
+                location.href="myCollect.jsp";
             }
             // $(this).prev().prev().addClass("animated rubberBand");
 
@@ -444,14 +444,14 @@
 //            $("#add_cart").text("加入购物车").css({"background":"#f5f5f5","color":"#000"})
                 alert("请选择商品信息");
             }else{
-                location.href="cart.html";
+                location.href="cart.jsp";
             }
             e.preventDefault();
             var color = $("#choose_color input.borderChange").val();
             var model = $("#choose_model span.borderChange").html();
             var num = $("#buy-num").val();
             // 后台需要的参数
-            // var url = '/toOrder/'+${item.id}+'.html?&num='+num+'&itemColor='+color+'&itemModel='+model;
+            // var url = '/toOrder/'+${item.id}+'.jsp?&num='+num+'&itemColor='+color+'&itemModel='+model;
 //             window.location.href = url;
         })
     })
@@ -493,7 +493,7 @@
         };
         $.ajax({
             type: "post",
-            url: "/insertToCart.html",
+            url: "/insertToCart.jsp",
             data: params,
             success: function (data) {
                 if (data == '200') {
