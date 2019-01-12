@@ -1,6 +1,6 @@
 package com.study.bean;
 
-public class Item {
+public class ajia_item {
 	private int id;
 	private int cid;
 	private String brand;
@@ -15,11 +15,11 @@ public class Item {
 	private String created;
 	private String updated;
 	
-	public Item() {
+	public ajia_item() {
 		super();
 	}
 	
-	public Item(int id, int cid, String brand, String model, String title, String sell_point, int price, int num,
+	public ajia_item(int id, int cid, String brand, String model, String title, String sell_point, int price, int num,
 			String barcode, String image, int status, String created, String updated) {
 		super();
 		this.id = id;

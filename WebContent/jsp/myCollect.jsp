@@ -1,3 +1,6 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="com.study.bean.ajia_collect_item"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +13,9 @@
     <link rel="stylesheet" href="../css/footer.css"/>
 </head>
 <body>
+<%
+	List<ajia_collect_item> list= (List<ajia_collect_item>)session.getAttribute("list");
+%>
 <!-- 页面顶部-->
 <header id="top">
     <div id="logo" class="lf">
@@ -29,21 +35,21 @@
     </div>
     <div class="rt">
         <ul class="lf">
-            <li><a href="myCollect.jsp" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
-            <li><a href="myOrder.jsp" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
-            <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
-            <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
-            <li><a href="login.jsp">登录</a></li>
+            <li><a href="myCollect.html" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
+            <li><a href="myOrder.html" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
+            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
+            <li><a href="lookforward.html">帮助</a><b>|</b></li>
+            <li><a href="login.html">登录</a></li>
         </ul>
     </div>
 </header>
 <!-- nav主导航-->
 <nav id="nav">
     <ul>
-        <li><a href="index.jsp" class="active">首页</a></li>
-        <li><a href="item_food.jsp">生活餐饮</a></li>
-        <li><a href="itemCat.jsp">学习用品</a></li>
-        <li><a href="lookforward.jsp">私人定制</a></li>
+        <li><a href="index.html" class="active">首页</a></li>
+        <li><a href="item_food.html">生活餐饮</a></li>
+        <li><a href="itemCat.html">学习用品</a></li>
+        <li><a href="lookforward.html">私人定制</a></li>
     </ul>
 </nav>
 <div class="modal" style="display:none">
@@ -117,14 +123,20 @@
                     <div class="foot_qk">清空失效商品</div>
                 </div>
                 <div id="content_box" >
+                <%
+                	if(list.size()>0)
+                                for(ajia_collect_item collect:list){
+                %>
                     <div class="lf" id="d1">
                         <div class="img">
-                            <img src="../images/myCollect/product_img1.png" alt=""/>
+                            <img src="<%collect.getPic_path(); %>" alt=""/>
                         </div>
                         <div class="describe">
-                            <p>DELL燃7000&nbsp;14.0英寸微边框(i5-7200u&nbsp;
-                                8GB&nbsp;256GB&nbsp;SSD&nbsp;HD620&nbsp;Win10)银</p>
-                            <span class="price"><b>￥</b><span class="priceContent">4000.00</span></span>
+                            <p><%collect.getTitle(); %></p>
+                            <span class="price">
+                            	<b>￥</b>
+                            	<span class="priceContent"><%collect.getPrice(); %></span>
+                            </span>
                             <span class="addCart">加入购物车</span>
                             <span class="succee" style="display: none">
                                  <img src="../images/myCollect/product_true.png" alt=""/>
@@ -137,107 +149,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="lf" id="d2">
-                        <div class="img">
-                            <img src="../images/myCollect/product_img2.png" alt=""/>
-                        </div>
-                        <div class="describe">
-                            <p>DELL燃7000&nbsp;14.0英寸微边框(i5-7200u&nbsp;
-                                8GB&nbsp;256GB&nbsp;SSD&nbsp;HD620&nbsp;Win10)银</p>
-                            <span class="price"><b>￥</b><span class="priceContent">4000.00</span></span>
-                            <span class="addCart">加入购物车</span>
-                             <span class="succee" style="display: none">
-                                 <img src="../images/myCollect/product_true.png" alt=""/>
-                                 <span>已移入购物车</span>
-                            </span>
-                        </div>
-                        <div class="mask" style="display: none">
-                            <div class="maskNormal">
-                                <img src="../images/myCollect/product_normal_big.png" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lf" id="d3">
-                        <div class="img">
-                            <img src="../images/myCollect/product_img3.png" alt=""/>
-                        </div>
-                        <div class="describe">
-                            <p>DELL燃7000&nbsp;14.0英寸微边框(i5-7200u&nbsp;
-                                8GB&nbsp;256GB&nbsp;SSD&nbsp;HD620&nbsp;Win10)银</p>
-                            <span class="price"><b>￥</b><span class="priceContent">4000.00</span></span>
-                            <span class="addCart">加入购物车</span>
-                             <span class="succee" style="display: none">
-                                 <img src="../images/myCollect/product_true.png" alt=""/>
-                                 <span>已移入购物车</span>
-                            </span>
-                        </div>
-                        <div class="mask" style="display: none">
-                            <div class="maskNormal">
-                                <img src="../images/myCollect/product_normal_big.png" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lf" id="d4">
-                        <div class="img">
-                            <img src="../images/myCollect/product_img4.png" alt=""/>
-                        </div>
-                        <div class="describe">
-                            <p>DELL燃7000&nbsp;14.0英寸微边框(i5-7200u&nbsp;
-                                8GB&nbsp;256GB&nbsp;SSD&nbsp;HD620&nbsp;Win10)银</p>
-                            <span class="price"><b>￥</b><span class="priceContent">4000.00</span></span>
-                            <span class="addCart">加入购物车</span>
-                             <span class="succee" style="display: none">
-                                 <img src="../images/myCollect/product_true.png" alt=""/>
-                                 <span>已移入购物车</span>
-                            </span>
-                        </div>
-                        <div class="mask" style="display: none">
-                            <div class="maskNormal">
-                                <img src="../images/myCollect/product_normal_big.png" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lf" id="d5">
-                        <div class="img">
-                            <img src="../images/myCollect/product_img5.png" alt=""/>
-                        </div>
-                        <div class="describe">
-                            <p>DELL燃7000&nbsp;14.0英寸微边框(i5-7200u&nbsp;
-                                8GB&nbsp;256GB&nbsp;SSD&nbsp;HD620&nbsp;Win10)银</p>
-                            <span class="price"><b>￥</b><span class="priceContent">4000.00</span></span>
-                            <span class="addCart">加入购物车</span>
-                             <span class="succee" style="display: none">
-                                 <img src="../images/myCollect/product_true.png" alt=""/>
-                                 <span>已移入购物车</span>
-                            </span>
-                        </div>
-                        <div class="mask" style="display: none">
-                            <div class="maskNormal">
-                                <img src="../images/myCollect/product_normal_big.png" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lf" id="d6">
-                        <div class="img">
-                            <img src="../images/myCollect/product_img6.png" alt=""/>
-                        </div>
-                        <div class="describe">
-                            <p>DELL燃7000&nbsp;14.0英寸微边框(i5-7200u&nbsp;
-                                8GB&nbsp;256GB&nbsp;SSD&nbsp;HD620&nbsp;Win10)银</p>
-                            <span class="price"><b>￥</b><span class="priceContent">4000.00</span></span>
-                            <span class="addCart">加入购物车</span>
-                             <span class="succee" style="display: none">
-                                 <img src="../images/myCollect/product_true.png" alt=""/>
-                                 <span>已移入购物车</span>
-                            </span>
-                        </div>
-                        <div class="mask" style="display: none">
-                            <div class="maskNormal">
-                                <img src="../images/myCollect/product_normal_big.png" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-
+                    <%} %>
                 </div>
                 <div class="foot" >
                     <div class="manage">

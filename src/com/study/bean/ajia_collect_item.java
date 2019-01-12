@@ -1,6 +1,6 @@
 package com.study.bean;
 
-public class Collect {
+public class ajia_collect_item {
 
 	private int id;
 	private int user_id;
@@ -12,11 +12,11 @@ public class Collect {
 	private int status;
 	private String created;
 	private String updated;
-	public Collect()
+	public ajia_collect_item()
 	{
 		
 	}
-	public Collect(int id, int user_id, int item_id, String title, double price, String pic_path,
+	public ajia_collect_item(int id, int user_id, int item_id, String title, double price, String pic_path,
 			String item_param_data, int status, String created, String updated) {
 		super();
 		this.id = id;
