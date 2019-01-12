@@ -2,6 +2,7 @@ package com.study.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,8 @@ public class DetailsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id=req.getParameter("id");
 		Item item=detailsdao.selectItemById(id);
-		System.out.println(item.toString());
+		System.out.println(item.getBrand());
+		resp.sendRedirect("jsp/product_details.jsp?brand="+item.getBrand()+"&price="+item.getPrice());
 	}
 
 }

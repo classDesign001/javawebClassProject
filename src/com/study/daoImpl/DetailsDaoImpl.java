@@ -26,6 +26,10 @@ public class DetailsDaoImpl extends BaseDaoImpl<Item> implements DetailsDao {
 			rs=pstm.executeQuery();
 			if(rs.next()) {
 				item.setBrand(rs.getString("brand"));
+				item.setModel(rs.getString("model"));
+				item.setTitle(rs.getString("title"));
+				item.setSell_point(rs.getString("sell_point"));
+				item.setPrice(Integer.parseInt(rs.getString("price")));
 			}
 		} catch (ClassNotFoundException e2) {
 			e2.printStackTrace();

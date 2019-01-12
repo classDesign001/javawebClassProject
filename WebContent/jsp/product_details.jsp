@@ -50,7 +50,8 @@
 <!-- 内容-->
 <!--细节导航-->
 <div id="nav_detail">
-    <h5>首页 > 学习用品 > 笔记本电脑 > 联想Lenovo-YOGA 700></h5>
+    <h5>首页 > 学习用品 > 笔记本电脑 ><%=request.getParameter("brand") %>><%=request.getParameter("price") %>> 联想Lenovo-YOGA 700></h5>
+    
 </div>
 <!--产品预览-->
 <div id="shop_detail">
