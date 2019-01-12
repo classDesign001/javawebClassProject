@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.study.bean.ajia_shipping;
 import com.study.dao.ajiaShippingDao;
-import com.study.daoImpl.ajiaShippingImpl;
+import com.study.daoIpml.ajiaShippingImpl;
 
 /**
  * Servlet implementation class ajiaDeleteServlet

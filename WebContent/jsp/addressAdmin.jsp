@@ -167,9 +167,9 @@ ajia_user user=(ajia_user)session.getAttribute("user");
         		for (int i=0 ;i<ships.size();i++ ) {
         			%>
         		<% if(ships.get(i).getUser_id()==user.getId()||ships.get(i).getUser_id().equals(user.getId())){ %>
-                <!-- class="aim_contentone" -->
+                <!-- class="aim_contentone" dzmc_active-->
                 <div>
-                    <span class="dzmc dzmc_active"><%=ships.get(i).getReceiver_state() %></span><span class="dzxm dzxm_normal"><%=ships.get(i).getReceiver_name() %></span><span class="dzxq dzxq_normal"><%=ships.get(i).getReceiver_address() %></span><span class="lxdh lxdh_normal"><%=ships.get(i).getReceiver_mobile() %></span><span class="operation operation_normal"><span class="aco_change">修改</span>|<span class="aco_delete" onclick="delteaddress(<%=ships.get(i).getId() %>)" >删除</span></span><span class="swmr swmr_normal"></span>
+                    <span class="dzmc"><%=ships.get(i).getReceiver_state() %></span><span class="dzxm dzxm_normal"><%=ships.get(i).getReceiver_name() %></span><span class="dzxq dzxq_normal"><%=ships.get(i).getReceiver_address() %></span><span class="lxdh lxdh_normal"><%=ships.get(i).getReceiver_mobile() %></span><span class="operation operation_normal"><span class="aco_change">修改</span>|<span class="aco_delete" onclick="delteaddress(<%=ships.get(i).getId() %>)" >删除</span></span><span class="swmr swmr_normal"></span>
                 </div>
                 <%} %>
                 <% }%>

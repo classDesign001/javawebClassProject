@@ -1,3 +1,14 @@
+<%@page import="com.study.daoIpml.ajiaItemDaoImpl"%>
+<%@page import="com.study.dao.ajiaItemDao"%>
+<%@page import="org.eclipse.jdt.internal.compiler.ast.ForeachStatement"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
+<%@page import="java.util.List"%>
+<%@page import="com.study.bean.ajia_cart_item"%>
+<%@page import="com.study.bean.ajia_user"%>
+<%@page import="com.study.bean.ajia_item"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.study.daoIpml.AjiaCartItemImpl"%>
+<%@page import="com.study.dao.AjiaCartItemDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -96,6 +107,33 @@
                     <div class="totle_top">金额</div>
                     <div class="del_top">操作</div>
                 </div>
+              
+              <%
+                                        	//测试id
+                                                           	int curID;
+                    ajia_user auser=(ajia_user)session.getAttribute("user");
+                    curID=auser.getId();
+                                                            List<ajia_cart_item> cart_items=new ArrayList<>();
+                                                            List<ajia_item> ajiaitems=new ArrayList<ajia_item>();
+                                                            ajia_cart_item item=new ajia_cart_item();
+                                                            
+                                                            AjiaCartItemDao cartItemDao=new AjiaCartItemImpl();
+                                                            ajiaItemDao aiDao=new ajiaItemDaoImpl();
+                                                            cart_items=cartItemDao.selectCartItemByUserId(curID);
+                                                            
+                                                            for(ajia_cart_item ite:cart_items){
+                                                            	ajia_item ajiaItem=new ajia_item();
+                                                            	ajiaItem.setId(ite.getItemId());
+                                                            	 ajiaItem=aiDao.select(ajiaItem);
+                                                            	ajiaitems.add(ajiaItem);
+                                                            }
+                                                            
+                                                            
+                                                            
+                                                            if(!ajiaitems.isEmpty()){
+                                                            	for( int i=0;i<ajiaitems.size();i++){
+                                        %>
+                    
                 <div class="imfor">
                     <div class="check">
                         <div class="Each">
@@ -105,12 +143,15 @@
                             <input type="hidden" name="" value="">
                         </div>
                     </div>
+                    
+                   
                     <div class="pudc">
                         <div class="pudc_information" id="pudcId3">
-                            <img src="../images/cart/product_simg1.png" class="lf"/>
+                            <img src="<%=ajiaitems.get(i).getImage() %>" class="lf"/>
                             <input type="hidden" name="" value="">
                         <span class="des lf">
-                            联想(Lenovo)YOGA5 PRO 标配版电脑(i5-7200u 8G 512G SSD FHD IPS)银
+                         <%=ajiaitems.get(i).getTitle() %>
+                            
                               <input type="hidden" name="" value="">
                         </span>
                             <p class="col lf"><span>颜色：</span><span class="color_des">深空灰  <input type="hidden" name="" value=""></span></p>
@@ -118,98 +159,29 @@
                     </div>
                     <div class="pices">
                         <p class="pices_des">阿甲专享价</p>
-                        <p class="pices_information"><b>￥</b><span>4888.00  <input type="hidden" name="" value=""></span></p>
+                        <p class="pices_information"><b>￥</b><span><%=ajiaitems.get(i).getPrice() %><input type="hidden" name="" value=""></span></p>
                     </div>
-                    <div class="num"><span class="reduc">&nbsp;-&nbsp;</span><input type="text" value="1" ><span class="add">&nbsp;+&nbsp;</span></div>
+                    <div class="num"><span class="reduc">&nbsp;-&nbsp;</span><input type="text" value=<%=ajiaitems.get(i).getNum() %> ><span class="add">&nbsp;+&nbsp;</span></div>
                     <div class="totle">
                         <span>￥</span>
-                        <span class="totle_information">4888.00</span>
+                        <span class="totle_information"><%=ajiaitems.get(i).getNum()* ajiaitems.get(i).getPrice()%></span>
                     </div>
                     <div class="del">
-                        <!-- <div>
+                        <div>
                             <img src="img/true.png" alt=""/>
                             <span>已移入收藏夹</span>
                         </div>
                          <a href="javascript:;" class="del_yr">移入收藏夹</a>
-                        -->
+                      
                         <a href="javascript:;" class="del_d">删除</a>
                     </div>
+                   
                 </div>
-                <div class="imfor">
-                    <div class="check">
-                        <div class="Each">
-                            <span class="normal">
-                                <img src="../images/cart/product_normal.png" alt=""/>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pudc">
-                        <div class="pudc_information" id="pudcId1">
-                            <img src="../images/cart/product_simg1.png" class="lf"/>
-                            <input type="hidden" name="" value="">
-                         <span class="des lf">
-                            联想(Lenovo)YOGA5 PRO 标配版电脑(i5-7200u 8G 512G SSD FHD IPS)银
-                             <input type="hidden" name="" value="">
-                        </span>
-                            <p class="col lf"><span>颜色：</span><span class="color_des">玫瑰金  <input type="hidden" name="" value=""></span></p>
-                        </div>
-                    </div>
-                    <div class="pices">
-                        <p class="pices_des">阿甲专享价</p>
-                        <p class="pices_information"><b>￥</b><span>4888.00</span></p>
-                    </div>
-                    <div class="num"><span class="reduc">&nbsp;-&nbsp;</span><input type="text" value="1" /><span class="add">&nbsp;+&nbsp;</span></div>
-                    <div class="totle">
-                        <span>￥</span>
-                        <span class="totle_information">4888.00</span>
-                    </div>
-                    <div class="del">
-                       <!-- <div>
-                            <img src="img/true.png" alt=""/>
-                            <span>已移入收藏夹</span>
-                        </div>
-                         <a href="javascript:;" class="del_yr">移入收藏夹</a>
-                        -->
-                        <a href="javascript:;" class="del_d">删除</a>
-                    </div>
-                </div>
-                <div class="imfor">
-                    <div class="check">
-                        <div class="Each">
-                            <span class="normal"><img src="../images/cart/product_normal.png" alt=""/></span>
-                        </div>
-                    </div>
-                    <div class="pudc">
-                        <div class="pudc_information" id="pudcId2">
-                            <img src="../images/cart/product_simg1.png" class="lf"/>
-                            <input type="hidden" name="" value="">
-                         <span class="des lf">
-                            联想(Lenovo)YOGA5 PRO 标配版电脑(i5-7200u 8G 512G SSD FHD IPS)银
-                               <input type="hidden" name="" value="">
-                        </span>
-                            <p class="col lf"><span>颜色：</span><span class="color_des">炫酷黑  <input type="hidden" name="" value=""></span></p>
-                        </div>
-                    </div>
-                    <div class="pices">
-                        <p class="pices_des">阿甲专享价</p>
-                        <p class="pices_information"><b>￥</b><span>4888.00</span></p>
-                    </div>
-                    <div class="num"><span class="reduc">&nbsp;-&nbsp;</span><input type="text" value="1" /><span class="add">&nbsp;+&nbsp;</span></div>
-                    <div class="totle">
-                        <span>￥</span>
-                        <span class="totle_information">4888.00</span>
-                    </div>
-                    <div class="del">
-                        <!-- <div>
-                           <img src="img/true.png" alt=""/>
-                           <span>已移入收藏夹</span>
-                       </div>
-                        <a href="javascript:;" class="del_yr">移入收藏夹</a>
-                       -->
-                        <a href="javascript:;" class="del_d">删除</a>
-                    </div>
-                </div>
-            </div>
+             
+              <%} }%>
+          
+           
+            </div> 
             <div class="foot">
                 <div class="foot_check">
                     <div class="all">

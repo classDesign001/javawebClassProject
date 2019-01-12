@@ -1,7 +1,7 @@
 package com.study.bean;
 
 public class ajia_item {
-	private int id;
+	private Long id;
 	private int cid;
 	private String brand;
 	private String model;
@@ -19,10 +19,10 @@ public class ajia_item {
 		super();
 	}
 	
-	public ajia_item(int id, int cid, String brand, String model, String title, String sell_point, int price, int num,
+	public ajia_item(long id, int cid, String brand, String model, String title, String sell_point, int price, int num,
 			String barcode, String image, int status, String created, String updated) {
 		super();
-		this.id = id;
+		this.id =  id;
 		this.cid = cid;
 		this.brand = brand;
 		this.model = model;
@@ -37,7 +37,7 @@ public class ajia_item {
 		this.updated = updated;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public int getCid() {
@@ -76,8 +76,8 @@ public class ajia_item {
 	public String getUpdated() {
 		return updated;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(long id) {
+		this.id =  id;
 	}
 	public void setCid(int cid) {
 		this.cid = cid;

@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import com.study.daoIpml.*;
 import com.study.bean.ajia_user;
 import com.study.dao.UserDao;
-import com.study.daoImpl.*;
 import com.study.util.DBUtil;
 
 public class RegisterServlet extends HttpServlet {
