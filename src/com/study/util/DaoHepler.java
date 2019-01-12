@@ -27,7 +27,7 @@ public class DaoHepler {
 		try {
 			if (conn == null || conn.isClosed()) {
 				conn = DriverManager.getConnection(
-						"jdbc:mysql://111.230.27.166:3306/ajiaMall?useUnicode=true&characterEncoding=UTF-8",
+						"jdbc:mysql://111.230.27.166:3306/ajiaMall?relaxAutoCommit=true&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=UTF-8",
 						"ajiaMall", "nshCpGyMSL");
 			}
 		} catch (SQLException e) {

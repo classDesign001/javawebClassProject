@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+    <%@page import="com.study.bean.ajia_user"%>
+   <%@page import="com.study.bean.ajia_shipping"%>
+   <%@page import="com.study.dao.ajiaShippingDao"%>
+   <%@page import="com.study.daoIpml.ajiaShippingImpl"%>
+    <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +18,10 @@
 </head>
 <body>
 <!-- 页面顶部-->
+<% 
+ajia_user user=(ajia_user)session.getAttribute("user");
+
+%>
 <header id="top">
     <div id="logo" class="lf">
         <img class="animated jello" src="../images/header/logo.png" alt="logo"/>
@@ -30,21 +40,21 @@
     </div>
     <div class="rt">
         <ul class="lf">
-            <li><a href="myCollect.html" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
-            <li><a href="myOrder.html" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
-            <li><a href="cart.html" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
-            <li><a href="lookforward.html">帮助</a><b>|</b></li>
-            <li><a href="login.html">登录</a></li>
+            <li><a href="myCollect.jsp" title="我的收藏"><img class="care" src="../images/header/care.png" alt=""/></a><b>|</b></li>
+            <li><a href="myOrder.jsp" title="我的订单"><img class="order" src="../images/header/order.png" alt=""/></a><b>|</b></li>
+            <li><a href="cart.jsp" title="我的购物车"><img class="shopcar" src="../images/header/shop_car.png" alt=""/></a><b>|</b></li>
+            <li><a href="lookforward.jsp">帮助</a><b>|</b></li>
+            <% if(user!=null){%><li><a href="personage.jsp"><%=user.getUsername() %></a></li> <%}else{%><li><a href="login.jsp">登录</a></li><% }%>
         </ul>
     </div>
 </header>
 <!-- 主导航-->
 <nav id="nav">
     <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="item_food.html">生活餐饮</a></li>
-        <li><a href="itemCat.html">学习用品</a></li>
-        <li><a href="lookforward.html">私人定制</a></li>
+        <li><a href="index.jsp" class="active">首页</a></li>
+        <li><a href="item_food.jsp">生活餐饮</a></li>
+        <li><a href="itemCat.jsp">学习用品</a></li>
+        <li><a href="lookforward.jsp">私人定制</a></li>
     </ul>
 </nav>
 <!-- 我的订单导航栏-->
@@ -90,13 +100,13 @@
         </dl>
         <dl class="address">
                 <dt>收货地址<img src="../images/myOrder/myOrder1.png"></dt>
-				<dd><a href="addressAdmin.html">地址管理</a></dd>
+				<dd><a href="addressAdmin.jsp">地址管理</a></dd>
         </dl>
        <dl class="count_managment">
             <dt onClick="changeImage()">帐号管理<img src="../images/myOrder/myOrder1.png"></dt>
-            <dd class="first_dd"><a href="personage.html">我的信息</a></dd>
-            <dd><a href="personal_icon.html">个人头像</a></dd>
-            <dd><a href="personal_password.html">安全管理</a></dd>
+            <dd class="first_dd"><a href="personage.jsp">我的信息</a></dd>
+            <dd><a href="personal_icon.jsp">个人头像</a></dd>
+            <dd><a href="personal_password.jsp">安全管理</a></dd>
         </dl>
     </div>
     <!-- 右边栏-->
@@ -105,59 +115,64 @@
         <div class="rs_header">
             <span class="address_title">收获地址管理</span>
         </div>
+        
         <!--收货人信息填写栏-->
         <div class="rs_content">
+        <form action="../AjiaShippingServlet" method="post" id="reciveuserinfo">
             <!--收货人姓名-->
             <div class="recipients">
-                <span class="red">*</span>收货人：<input type="text"/>
+                <span class="red">*</span>收货人：<input name="recvusername" type="text"/>
             </div>
             <!--收货人所在城市等信息-->
             <div class="address_content">
                 <span class="red">*</span>省&nbsp;&nbsp;份：<select name="provices" id="provices">
                 <option value="0">请选择</option>
-                <option value="1">北京</option></select>城市：<select name="cites" id="cites">
+                <option value="北京">北京</option></select>城市：<select name="cites" id="cites">
                 <option value="0">请选择</option>
-                <option value="1">东城区</option></select>县区：<select name="counties" id="counties">
+                <option value="城区">东城区</option></select>县区：<select name="counties" id="counties">
                 <option value="0">请选择</option>
-                <option value="1">密云县</option></select>街道：<select name="street" id="street">
+                <option value="密云">密云县</option></select>街道：<select name="street" id="street">
                 <option value="0">请选择</option>
-                <option value="1">密云县</option></select>
+                <option value="密云">密云县</option></select>
             </div>
             <!--收货人详细地址-->
             <div class="address_particular">
-                <span class="red">*</span>详细地址：<textarea name="" id="" cols="60" rows="3" placeholder="建议您如实填写详细收货地址"></textarea>
+                <span class="red">*</span>详细地址：<textarea name="addressinfo" id="" cols="60" rows="3" placeholder="建议您如实填写详细收货地址"></textarea>
             </div>
             <!--收货人地址-->
             <div class="address_tel">
-                <span class="red">*</span>手机号码：<input type="text"/>固定电话：<input type="text"/>
+                <span class="red">*</span>手机号码：<input name="mobile" type="text"/>固定电话：<input name="phone" type="text"/>
             </div>
             <!--邮政编码-->
             <div class="address_postcode">
-                <span class="red">&nbsp;</span>邮政编码：<input type="text"/>
+                <span class="red">&nbsp;</span>邮政编码：<input name="zipcode" type="text"/>
             </div>
             <!--地址名称-->
             <div class="address_name">
-                <span class="red">&nbsp;</span>地址名称：<input type="text"/>如：<span class="sp">家</span><span class="sp">公司</span><span class="sp">宿舍</span>
+                <span class="red">&nbsp;</span>地址名称：<input name="address" type="text"/>如：<span class="sp">家</span><span class="sp">公司</span><span class="sp">宿舍</span>
             </div>
             <!--保存收货人信息-->
             <div class="save_recipient">
                 保存收货人信息
             </div>
-
+</form>
             <!--已有地址栏-->
             <div class="address_information_manage">
                 <div class="aim_title">
                     <span class="dzmc dzmc_title">地址名称</span><span class="dzxm dzxm_title">姓名</span><span class="dzxq dzxq_title">地址详情</span><span class="lxdh lxdh_title">联系电话</span><span class="operation operation_title">操作</span>
                 </div>
-                <div class="aim_content_one aim_active">
-                    <span class="dzmc dzmc_active">教室</span><span class="dzxm dzxm_normal">刘冉</span><span class="dzxq dzxq_normal">北京昌平区六环以内沙河镇芒果小镇公寓</span><span class="lxdh lxdh_normal">137****2345</span><span class="operation operation_normal"><span class="aco_change">修改</span>|<span class="aco_delete">删除</span></span><span class="swmr swmr_normal"></span>
+                <%
+                ajiaShippingDao shippingDao=new ajiaShippingImpl();
+        		List<ajia_shipping> ships=shippingDao.selectAll();
+        		for (int i=0 ;i<ships.size();i++ ) {
+        			%>
+        		<% if(ships.get(i).getUser_id()==user.getId()||ships.get(i).getUser_id().equals(user.getId())){ %>
+                <!-- class="aim_contentone" -->
+                <div>
+                    <span class="dzmc dzmc_active"><%=ships.get(i).getReceiver_state() %></span><span class="dzxm dzxm_normal"><%=ships.get(i).getReceiver_name() %></span><span class="dzxq dzxq_normal"><%=ships.get(i).getReceiver_address() %></span><span class="lxdh lxdh_normal"><%=ships.get(i).getReceiver_mobile() %></span><span class="operation operation_normal"><span class="aco_change">修改</span>|<span class="aco_delete" onclick="delteaddress(<%=ships.get(i).getId() %>)" >删除</span></span><span class="swmr swmr_normal"></span>
                 </div>
-                <div class="aim_content_two">
-                    <span class="dzmc dzmc_normal">家里</span><span class="dzxm dzxm_normal">刘冉</span><span class="dzxq dzxq_normal">北京昌平区六环以内沙河镇芒果小镇公寓</span><span class="lxdh lxdh_normal">137****2345</span><span class="operation operation_normal"><span class="aco_change">修改</span>|<span class="aco_delete">删除</span></span><span class="swmr swmr_normal">设为默认</span>
-                </div>
-                <div class="aim_content_three">
-                    <span class="dzmc dzmc_normal">宿舍</span><span class="dzxm dzxm_normal">刘冉</span><span class="dzxq dzxq_normal">北京昌平区六环以内沙河镇芒果小镇公寓</span><span class="lxdh lxdh_normal">137****2345</span><span class="operation operation_normal"><span class="aco_change">修改</span>|<span class="aco_delete">删除</span></span><span class="swmr swmr_normal">设为默认</span>
-                </div>
+                <%} %>
+                <% }%>
             </div>
         </div>
     </div>
@@ -232,6 +247,22 @@
 </body>
 <script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
 <script src="../js/index.js"></script>
+<script>
+$('.save_recipient').click(function(){
+	
+	//alert("click!");
+	var form = document.getElementById('reciveuserinfo');
+	//再次修改input内容
+
+	form.submit();
+});
+
+function delteaddress(id){
+	
+	location.href="../ajiaDeleteServlet?id="+id;
+}
+</script>
+
 <script src="../js/jquery.page.js"></script>
 <script type="text/javascript" src="../js/order.js"></script>
 </html>
