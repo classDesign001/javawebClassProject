@@ -50,7 +50,7 @@
 <!-- 内容-->
 <!--细节导航-->
 <div id="nav_detail">
-    <h5>首页 > 学习用品 > 笔记本电脑 ><%=request.getParameter("brand") %>><%=request.getParameter("price") %>> 联想Lenovo-YOGA 700></h5>
+    <h5>首页 > 学习用品 > 笔记本电脑 > <%=request.getAttribute("model")%></h5>
     
 </div>
 <!--产品预览-->
@@ -73,12 +73,12 @@
     <!-- 右侧-->
     <div class="right_detail lf">
         <!-- 商品名称-->
-        <h1>Lenovo-YOGA 700</h1>
+        <h1><%=request.getAttribute("model")%></h1>
         <!-- 商品全称-->
-        <h3>(i7-7500U 8G 256GSSD 2G独显 全高清IPS 360°翻转 正版office)</h3>
+        <h3><%=request.getAttribute("sell_point")%></h3>
         <!-- 价格部分-->
         <div class="price">
-            <div id="pro_price"><b>学员售价：</b><span>￥5999.00</span></div>
+            <div id="pro_price"><b>学员售价：</b><span>￥<%=request.getAttribute("price")%></span></div>
             <div class="promise">
                 <b>服务承诺：</b>
                 <span>*退货补运费</span>
@@ -169,7 +169,7 @@
         <div class="tab lf">
             <div class="cat">
                 <span class="active"><a href="">商品详情</a></span>
-                <span><a href="lookforward.html">商品评价</a></span>
+                <span><a href="lookforward.jsp">商品评价</a></span>
             </div>
         </div>
         <div class="cart rt">

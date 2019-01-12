@@ -55,19 +55,19 @@ ajia_user user=(ajia_user)session.getAttribute("user");
 <div class="ck-slide">
     <ul class="ck-slide-wrapper">
         <li>
-            <a href="/javawebClassProject/DetailsServlet.do?id=1"><img src="../images/index/index_banner1.png" alt=""></a>
+            <a href="DetailsServlet.do?id=536563"><img src="../images/index/index_banner1.png" alt=""></a>
         </li>
         <li style="display:none">
-            <a href="product_details.jsp"><img src="../images/index/index_banner2.png" alt=""></a>
+            <a href="DetailsServlet.do?id=635906"><img src="../images/index/index_banner2.png" alt=""></a>
         </li>
         <li style="display:none">
-            <a href="product_details.jsp"><img src="../images/index/index_banner3.png" alt=""></a>
+            <a href="DetailsServlet.do?id=635907"><img src="../images/index/index_banner3.png" alt=""></a>
         </li>
         <li style="display:none">
-            <a href="product_details.jsp"><img src="../images/index/index_banner4.png" alt=""></a>
+            <a href="DetailsServlet.do?id=691300"><img src="../images/index/index_banner4.png" alt=""></a>
         </li>
         <li style="display:none">
-            <a href="product_details.jsp"><img src="../images/index/index_banner5.png" alt=""></a>
+            <a href="DetailsServlet.do?id=635914"><img src="../images/index/index_banner5.png" alt=""></a>
         </li>
     </ul>
     <a href="javascript:;" class="ctrl-slide ck-prev">上一张</a> <a href="javascript:;" class="ctrl-slide ck-next">下一张</a>

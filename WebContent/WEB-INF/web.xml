@@ -31,7 +31,7 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>detailsServlet</servlet-name>
-  	<url-pattern>/DetailsServlet.do</url-pattern>
+  	<url-pattern>/jsp/DetailsServlet.do</url-pattern>
   </servlet-mapping>
   <jsp-config>
     <taglib>

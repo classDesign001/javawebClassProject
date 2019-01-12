@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.study.bean.ajia_shipping;
 import com.study.bean.ajia_user;
 import com.study.dao.ajiaShippingDao;
-import com.study.daoIpml.ajiaShippingImpl;
+import com.study.daoImpl.ajiaShippingImpl;
 
 /**
  * Servlet implementation class AjiaShippingServlet
